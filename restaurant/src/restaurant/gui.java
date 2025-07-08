@@ -235,19 +235,23 @@ public class gui extends javax.swing.JFrame {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         clearForm();
+        clearTable();
         JOptionPane.showMessageDialog(this, "Form telah direset.", "Reset", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_resetActionPerformed
     private void clearForm() {
         nama.setText("");
-        jDateChooser1.setDate(null); // Mengosongkan JDateChooser
+        jDateChooser1.setDate(null); 
         bruto.setText("");
         listair.setText("");
         bahan.setText("");
     }
+    private void clearTable() {
+        restaurantList.clear(); 
+        tableModel.setRowCount(0); 
+    }
     
      private void populateTable() {
-        tableModel.setRowCount(0); // Hapus semua baris yang ada
-
+        tableModel.setRowCount(0); 
         for (Restaurant r : restaurantList) {
             Object[] rowData = {
                 r.getNama(),
